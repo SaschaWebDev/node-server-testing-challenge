@@ -4,7 +4,7 @@ const Users = require('./user-model.js');
 
 const router = express.Router();
 
-// GET ALL USERS
+// GET ALL USERS´J
 router.get('/users', async (req, res) => {
   Users.find()
     .then(users => {
