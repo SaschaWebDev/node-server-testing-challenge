@@ -1,5 +1,9 @@
 # Server Testing
 
+## Author:
+
+Sascha Majewsky
+
 ## Topics
 
 - automated testing.
