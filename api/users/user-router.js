@@ -38,7 +38,7 @@ router.post('/register', (req, res) => {
 
     Users.add({ username, password })
       .then(newUser => {
-        const token = generateJWT(user);
+        const token = generateJWT(newUser);
 
         res.status(201).json({
           id: newUser.id,

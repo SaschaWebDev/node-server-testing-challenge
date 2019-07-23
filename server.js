@@ -28,9 +28,9 @@ const sessionConfig = {
 };
 
 server.get('/', (req, res) => {
-  res.send(
-    `<h2>Welcome to the API of sprint 13 lecture 4 daily challenge about testing</h2>`,
-  );
+  res.status(200).json({
+    message: `Welcome to the API of sprint 13 lecture 4 daily challenge about testing`,
+  });
 });
 
 server.use(Requestlogger);

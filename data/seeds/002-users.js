@@ -9,15 +9,15 @@ exports.seed = function(knex) {
       return knex('users').insert([
         {
           username: 'sascha',
-          password: bcrypt.hashSync('toosimple', 10),
+          password: bcrypt.hashSync('toosimple', 12),
         },
         {
           username: 'hanne',
-          password: bcrypt.hashSync('plaintext', 10),
+          password: bcrypt.hashSync('plaintext', 12),
         },
         {
           username: 'thiara',
-          password: bcrypt.hashSync('wownosecurity', 10),
+          password: bcrypt.hashSync('wownosecurity', 12),
         },
       ]);
     });
