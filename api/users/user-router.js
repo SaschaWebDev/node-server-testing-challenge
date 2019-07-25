@@ -94,6 +94,24 @@ function generateJWT(user) {
   return jwt.sign(payload, secrets.jwtSecret, options);
 }
 
+// Delete a user by id
+router.delete('/users/:id', async (req, res) => {
+  try {
+    const {
+      params: { id },
+    } = req;
+
+    const deletedUser = await Users.remove(id);
+    if (deletedUser > 0) {
+      res.status(200).json({ message: 'The user was removed successfully.' });
+    } else {
+      res.status(404).json({ message: 'The user could not be found.' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Error removing the user.' + error });
+  }
+});
+
 // LOGOUT
 router.get('/logout', (req, res) => {
   if (req.session) {

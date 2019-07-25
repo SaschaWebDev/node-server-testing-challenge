@@ -6,6 +6,7 @@ module.exports = {
   findBy,
   findByUsername,
   add,
+  remove,
 };
 
 function find() {
@@ -37,4 +38,10 @@ function add(user) {
   return db('users')
     .insert(user, 'id')
     .then(([id]) => this.findById(id));
+}
+
+function remove(id) {
+  return db('users')
+    .where('id', id)
+    .del();
 }

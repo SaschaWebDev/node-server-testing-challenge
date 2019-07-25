@@ -11,7 +11,7 @@ describe('users model', () => {
     it('inserts users into the db', async () => {
       let userAmount;
       userAmount = await db('users');
-      expect(userAmount.toHaveLength(0));
+      expect(userAmount).toHaveLength(0);
       await Users.add({
         username: 'catdog',
         password: bcrypt.hashSync('aloneintheworldisthelittlecatdog', 12),
@@ -24,12 +24,12 @@ describe('users model', () => {
       expect(userAmount).toHaveLength(2);
     });
 
-    it('inserts the provided hobbit into the db', async () => {
-      let user = await hobbit.insert({
-        name: 'christian',
+    it('inserts the provided user into the db', async () => {
+      let user = await Users.add({
+        username: 'christian',
         password: bcrypt.hashSync('bale', 12),
       });
-      expect(user.name).toBe('christian');
+      expect(user.username).toBe('christian');
     });
   });
 });
